@@ -1,30 +1,43 @@
-📊 Yahoo Finance Data Dashboard
+# 📊 Yahoo Finance Data Dashboard
 🔥 Automatiza la descarga, estructuración y visualización de datos financieros con Python, Excel y Dash.
 
 Este proyecto permite descargar información histórica de tickers de inversión desde Yahoo Finance, estructurar la base de datos automáticamente con una macro de Excel, y visualizar los datos con Plotly Dash en un servidor local.
 
-⚙️ Funcionalidad del Proyecto
+---
+
+## ⚙️ **Funcionalidad del Proyecto**
 1️⃣ Descarga los datos históricos de Yahoo Finance utilizando yfinance.
 2️⃣ Transforma y organiza los datos con una macro de Excel (VBA).
 3️⃣ Visualiza los gráficos interactivos con Plotly y Dash en tu navegador.
 
-🛠️ Requisitos
+---
+
+## 🛠️ **Requisitos**
 Antes de ejecutar el proyecto, asegúrate de tener instaladas las siguientes librerías en tu entorno de Python:
 
-bash
-Copiar código
-pip install yfinance pandas plotly dash
-🔧 Herramientas adicionales necesarias:
+1.yfinance 
+2.pandas 
+3.plotly dash
+
+---
+
+## 🔧 **Herramientas adicionales necesarias**:
 
 Excel con soporte para macros (VBA).
 Python 3.9+.
-📂 Configuración Inicial
-1️⃣ Descarga el Excel que usarás en este proyecto.
-2️⃣ Inserta la macro de VBA que encontrarás en este repositorio (archivo VBA.bas).
+
+---
+
+## 📂 **Configuración Inicial**
+1️⃣ Descarga el TXT que usarás en este proyecto.
+2️⃣ Inserta la macro de VBA que encontrarás en este repositorio (archivo VBA.txt).
+3️⃣ Genera un modulo dentro de excel y resguardalo en las macros personales para luego poder ejecutarlo de cualquier excel.
 
 La macro automatiza la limpieza y estructuración de los datos descargados.
-3️⃣ Guarda el archivo Excel con la macro habilitada (.xlsm).
-🚀 Cómo Usarlo
+
+---
+
+## 🚀 **Cómo Usarlo**
 🧩 Paso 1: Ejecutar original_yfinance.py
 Este script descargará automáticamente los datos históricos de los tickers más relevantes que ya están configurados en el archivo.
 
@@ -41,13 +54,18 @@ Este script generará un gráfico interactivo utilizando Plotly Dash y abrirá u
 💻 Accede al dashboard local:
 Presiona Ctrl + Click en la dirección que aparece en la terminal (por ejemplo: http://127.0.0.1:8050/).
 
-🎨 Ejemplo del Gráfico Interactivo
-![Gráfico Interactivo](Ejemplo Grafico.png)
+## 🎨 **Ejemplo del Gráfico Interactivo**
+![image](https://github.com/user-attachments/assets/b8609169-26e0-4431-adc4-4fb8b03e50db)
 
-🧑‍💻 Contribución y Feedback
+---
+
+## 🧑‍💻 **Contribución y Feedback**
 Este proyecto está abierto a mejoras.
 ¡Cualquier contribución es bienvenida! 🙌
 
-📄 Licencia
+---
+
+## 📄 **Licencia**
 Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
+---
