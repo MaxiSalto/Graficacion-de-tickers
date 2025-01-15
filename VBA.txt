@@ -1,0 +1,51 @@
+Sub UnificarHojas()
+    Dim ws As Worksheet
+    Dim consolidado As Worksheet
+    Dim ultimaFila As Long
+    Dim ticker As String
+    Dim filaDestino As Long
+
+    ' Crear o limpiar la hoja Consolidado
+    On Error Resume Next
+    Set consolidado = ActiveWorkbook.Sheets("Consolidado")
+    If consolidado Is Nothing Then
+        Set consolidado = ActiveWorkbook.Sheets.Add
+        consolidado.Name = "Consolidado"
+    Else
+        consolidado.Cells.Clear
+    End If
+    On Error GoTo 0
+
+    ' Encabezado en la hoja Consolidado
+    consolidado.Range("A1:G1").Value = Array("Date", "Close", "High", "Low", "Open", "Volume", "Ticker")
+    filaDestino = 2
+
+    ' Recorrer todas las hojas del archivo activo
+    For Each ws In ActiveWorkbook.Sheets
+        If ws.Name <> "Consolidado" Then
+            ' Obtener el ticker de la celda B2
+            ticker = ws.Range("B2").Value
+
+            ' Insertar columna "Ticker" en la columna G
+            ws.Range("G1").Value = "Ticker"
+            ultimaFila = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+            ws.Range("G2:G" & ultimaFila).Value = ticker
+
+            ' Eliminar filas 2 y 3
+            ws.Rows("2:3").Delete
+
+            ' Renombrar la celda A1 como "Date"
+            ws.Range("A1").Value = "Date"
+
+            ' Copiar los datos a la hoja Consolidado sin repetir el encabezado
+            ws.Range("A2:G" & ultimaFila).Copy
+            consolidado.Cells(filaDestino, 1).PasteSpecial Paste:=xlPasteValues
+            filaDestino = consolidado.Cells(consolidado.Rows.Count, "A").End(xlUp).Row + 1
+        End If
+    Next ws
+
+    ' Ajustar las columnas
+    consolidado.Columns.AutoFit
+
+    MsgBox "Consolidación completada.", vbInformation
+End Sub
